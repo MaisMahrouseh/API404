@@ -8,10 +8,12 @@ use App\Http\Controllers\TaskController;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
+Route::resource('user', UserController::class);
 
 Route::middleware(['auth:api' , 'isAdmin'])->group(function () {
-    Route::resource('user', UserController::class);
     Route::get('allTasks',[TaskController::class, 'ShowAll']);
+
+  //
    // Route::put('EditLogin/{id?}',[UserTasks::class, 'updateLogin']);
   // Route::put('EditLogout/{id?}',[UserTasks::class, 'updateLogout']);
 

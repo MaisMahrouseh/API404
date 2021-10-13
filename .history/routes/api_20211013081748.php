@@ -12,6 +12,8 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api')
 Route::middleware(['auth:api' , 'isAdmin'])->group(function () {
     Route::resource('user', UserController::class);
     Route::get('allTasks',[TaskController::class, 'ShowAll']);
+
+  //
    // Route::put('EditLogin/{id?}',[UserTasks::class, 'updateLogin']);
   // Route::put('EditLogout/{id?}',[UserTasks::class, 'updateLogout']);
 
