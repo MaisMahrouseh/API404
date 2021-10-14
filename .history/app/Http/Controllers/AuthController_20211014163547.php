@@ -59,8 +59,9 @@ class AuthController extends Controller
                   }
                   $cont--;
                   if($cont < 0)
-                     return response()->json([
-                        'message1' => 'Please enter your exit time in ' . Carbon::parse($LastLoginInformation->login_date_time)->format('Y-m-d')]);
+                  return response()->json([
+                    'message1' => 'Please enter your exit time in ' . Carbon::parse($LastLoginInformation->login_date_time)->format('Y-m-d')]);
+
                   return response()->json([
                     'message1' => 'Please enter your exit time in ' . Carbon::parse($LastLoginInformation->login_date_time)->format('Y-m-d'),
                     'message2' => 'Please enter the reason for your absence in the past' .' ' .$cont.' '. 'days🌝']);
@@ -77,9 +78,6 @@ class AuthController extends Controller
                   $cont++;
                 }
                 $cont--;
-                if($cont < 0)
-                   return response()->json([
-                      'message1' => 'Please enter your exit time in ' . Carbon::parse($LastLoginInformation->login_date_time)->format('Y-m-d')]);
                 return response()->json([
                     'message1' => 'Please enter your exit time in ' . Carbon::parse($LastLoginInformation->login_date_time)->format('Y-m-d'),
                     'message2' => 'Please enter the reason for your absence in the past' .' ' .$cont.' '. 'days']);
@@ -97,9 +95,6 @@ class AuthController extends Controller
                  $cont++;
                }
                $cont--;
-               if($cont < 0)
-                   return response()->json([
-                     'message1' => 'Please enter your exit time in ' . Carbon::parse($LastLoginInformation->login_date_time)->format('Y-m-d')]);
                return $this->response->returnError('Please enter the reason for your absence in the past' .' ' .$cont.' '. 'days🌝' , 403);
             }
         }
@@ -114,9 +109,6 @@ class AuthController extends Controller
                   $cont++;
                 }
                 $cont--;
-                if($cont < 0)
-                    return response()->json([
-                       'message1' => 'Please enter your exit time in ' . Carbon::parse($LastLoginInformation->login_date_time)->format('Y-m-d')]);
                 return $this->response->returnError('Please enter the reason for your absence in the past' .' ' .$cont.' '. 'days🌝' , 403);
             }
            }

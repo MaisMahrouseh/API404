@@ -65,7 +65,7 @@ class TaskController extends Controller
         if ($deleted)
            return  $this->response->returnSuccess('Deleted successfully' , 200);
         return $this->response->returnError('can not be deleted' , 500);
-    }}
+    }
 
     //عرض كل المهام وكل مهمة مع اسم صاحبا
     public function ShowAll()

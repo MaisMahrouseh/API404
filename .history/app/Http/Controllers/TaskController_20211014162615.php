@@ -53,11 +53,6 @@ class TaskController extends Controller
     //حذف مهمة من قبل المستخدم الي ضافا
     public function delete(Request $request , $id)
     {
-        $request->validate([
-            'user_id' => 'required',
-        ]);
-        if(auth()->user()->id == $request->user_id){
-
         $task = $this->task->find($id);
         if (!$task)
             return $this->response->returnError('task not found' , 400);
@@ -65,7 +60,7 @@ class TaskController extends Controller
         if ($deleted)
            return  $this->response->returnSuccess('Deleted successfully' , 200);
         return $this->response->returnError('can not be deleted' , 500);
-    }}
+    }
 
     //عرض كل المهام وكل مهمة مع اسم صاحبا
     public function ShowAll()
